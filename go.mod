@@ -1,14 +1,13 @@
 module github.com/zeromicro/go-zero
 
-go 1.18
+go 1.19
 
 require (
 	github.com/DATA-DOG/go-sqlmock v1.5.0
 	github.com/alicebob/miniredis/v2 v2.30.2
 	github.com/fatih/color v1.15.0
 	github.com/fullstorydev/grpcurl v1.8.7
-	github.com/go-redis/redis/v8 v8.11.5
-	github.com/go-sql-driver/mysql v1.7.1
+	github.com/go-sql-driver/mysql v1.7.0
 	github.com/golang-jwt/jwt/v4 v4.5.0
 	github.com/golang/mock v1.6.0
 	github.com/golang/protobuf v1.5.3
@@ -17,12 +16,13 @@ require (
 	github.com/jhump/protoreflect v1.15.1
 	github.com/olekukonko/tablewriter v0.0.5
 	github.com/pelletier/go-toml/v2 v2.0.7
-	github.com/prometheus/client_golang v1.15.1
+	github.com/prometheus/client_golang v1.15.0
+	github.com/redis/go-redis/v9 v9.0.4
 	github.com/spaolacci/murmur3 v1.1.0
 	github.com/stretchr/testify v1.8.2
 	go.etcd.io/etcd/api/v3 v3.5.8
 	go.etcd.io/etcd/client/v3 v3.5.8
-	go.mongodb.org/mongo-driver v1.11.6
+	go.mongodb.org/mongo-driver v1.11.4
 	go.opentelemetry.io/otel v1.14.0
 	go.opentelemetry.io/otel/exporters/jaeger v1.14.0
 	go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc v1.14.0
@@ -32,11 +32,11 @@ require (
 	go.opentelemetry.io/otel/trace v1.14.0
 	go.uber.org/automaxprocs v1.5.2
 	go.uber.org/goleak v1.2.1
-	golang.org/x/net v0.10.0
-	golang.org/x/sys v0.8.0
+	golang.org/x/net v0.9.0
+	golang.org/x/sys v0.7.0
 	golang.org/x/time v0.3.0
-	google.golang.org/genproto v0.0.0-20230306155012-7f2fa6fef1f4
-	google.golang.org/grpc v1.55.0
+	google.golang.org/genproto v0.0.0-20230123190316-2c411cf9d197
+	google.golang.org/grpc v1.54.0
 	google.golang.org/protobuf v1.30.0
 	gopkg.in/cheggaaa/pb.v1 v1.0.28
 	gopkg.in/h2non/gock.v1 v1.1.2
@@ -104,9 +104,9 @@ require (
 	go.uber.org/multierr v1.9.0 // indirect
 	go.uber.org/zap v1.24.0 // indirect
 	golang.org/x/crypto v0.6.0 // indirect
-	golang.org/x/oauth2 v0.6.0 // indirect
+	golang.org/x/oauth2 v0.5.0 // indirect
 	golang.org/x/sync v0.1.0 // indirect
-	golang.org/x/term v0.8.0 // indirect
+	golang.org/x/term v0.7.0 // indirect
 	golang.org/x/text v0.9.0 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
 	gopkg.in/inf.v0 v0.9.1 // indirect

@@ -4,13 +4,13 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"log"
 	"strconv"
 	"time"
 
-	red "github.com/go-redis/redis/v8"
+	red "github.com/redis/go-redis/v9"
 	"github.com/zeromicro/go-zero/core/breaker"
 	"github.com/zeromicro/go-zero/core/errorx"
-	"github.com/zeromicro/go-zero/core/logx"
 	"github.com/zeromicro/go-zero/core/mapping"
 	"github.com/zeromicro/go-zero/core/syncx"
 )
@@ -91,17 +91,20 @@ type (
 	Script = red.Script
 )
 
-// MustNewRedis returns a Redis with given options.
-func MustNewRedis(conf RedisConf, opts ...Option) *Redis {
-	rds, err := NewRedis(conf, opts...)
-	logx.Must(err)
-	return rds
-}
-
 // New returns a Redis with given options.
 // Deprecated: use MustNewRedis or NewRedis instead.
 func New(addr string, opts ...Option) *Redis {
 	return newRedis(addr, opts...)
+}
+
+// MustNewRedis returns a Redis with given options.
+func MustNewRedis(conf RedisConf, opts ...Option) *Redis {
+	rds, err := NewRedis(conf, opts...)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	return rds
 }
 
 // NewRedis returns a Redis with given options.
@@ -2025,7 +2028,7 @@ func (s *Redis) ZaddFloatCtx(ctx context.Context, key string, score float64, val
 			return err
 		}
 
-		v, err := conn.ZAdd(ctx, key, &red.Z{
+		v, err := conn.ZAdd(ctx, key, red.Z{
 			Score:  score,
 			Member: value,
 		}).Result()
@@ -2053,9 +2056,9 @@ func (s *Redis) ZaddsCtx(ctx context.Context, key string, ps ...Pair) (val int64
 			return err
 		}
 
-		var zs []*red.Z
+		var zs []red.Z
 		for _, p := range ps {
-			z := &red.Z{Score: float64(p.Score), Member: p.Key}
+			z := red.Z{Score: float64(p.Score), Member: p.Key}
 			zs = append(zs, z)
 		}
 
